@@ -19,7 +19,7 @@ export const App = () => {
           }
         );
         let dta= await response.json()
-        console.log(dta);
+        console.log(dta.results[0]);
   }
   getMovies()
 
