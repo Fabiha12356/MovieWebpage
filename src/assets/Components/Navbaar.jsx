@@ -28,7 +28,7 @@ export const Navbaar = () => {
 
 <Routes>
     <Route path='/' element={<Home/>}/>
-    <Route path='/moviesection' element={<Moviesection/>}/>
+    <Route path='/movieSection' element={<Moviesection/>}/>
     <Route path='/fav' element={<Fav/>}/>
 </Routes>
     </>
