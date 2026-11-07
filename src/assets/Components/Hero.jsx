@@ -1,6 +1,32 @@
 import React from 'react'
+
+import { useState } from 'react'
 import "./Hero.css"
+
+
 export const Hero = () => {
+
+let [search,setSearch] = useState("")
+
+let getMovie = async()=>{
+
+let url = `https://api.themoviedb.org/3/search/movie?query=${search}`;
+
+  console.log(url);
+
+  let searchMovie = await fetch(url,
+    {
+        headers:{
+            Authorization :`Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
+            accept: 'application/json'
+        }
+    }
+  )
+  let Get =  await searchMovie.json()
+  console.log(Get);
+  console.log(Get.results);
+}
+
   return (
      <section className="movie-hero">
       <div className="container">
@@ -23,8 +49,13 @@ export const Hero = () => {
               <input
                 type="text"
                 placeholder="Search your favourite movie..."
+                value={search}
+                onChange={(e)=>{
+console.log(e.target.value)
+setSearch(e.target.value)
+                }}
               />
-              <button type="button">Search</button>
+              <button type="button" onClick={getMovie}>Search</button>
             </div>
 
             <div className="hero-stats">
