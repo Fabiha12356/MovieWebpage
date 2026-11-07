@@ -17,7 +17,7 @@ useEffect(()=>{
         )
         let Get = await Movies.json()
         console.log(Get);
-        setMovies(Get)
+        setMovies(Get.results)
         console.log(movies);
     }
     getMovies();
@@ -38,18 +38,24 @@ useEffect(()=>{
 
         <div className="row g-4">
 
-          {[1, 2, 3, 4].map((item) => (
-            <div className="col-lg-3 col-md-6" key={item}>
+         {
+            movies.map((item)=>{
+                console.log(item);
+         return   <div className="col-lg-3 col-md-6" key={item.id}>
               <div className="movie-card">
 
                 <div className="movie-poster">
-                  <span className="poster-icon">🎬</span>
-                  <span className="movie-rating">★ 8.5</span>
+                 <img
+  src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+  alt={item.title}
+  width={300}
+/>
+                  <span className="movie-rating">★{item.vote_average}</span>
                 </div>
 
                 <div className="movie-info">
-                  <h5>Movie Title</h5>
-                  <p>2026 • Action / Adventure</p>
+                  <h5>{item.title}</h5>
+                  <p>{item.release_date}</p>
                   <button className="details-btn">
                     View Details →
                   </button>
@@ -57,8 +63,8 @@ useEffect(()=>{
 
               </div>
             </div>
-          ))}
-
+            })
+         }
         </div>
       </div>
     </section>
