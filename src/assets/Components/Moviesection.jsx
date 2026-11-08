@@ -1,27 +1,9 @@
 import React from 'react'
 import { useEffect,useState } from 'react'
 import "./MovieSection.css"
-export const Moviesection = () => {
+export const Moviesection = ({movies}) => {
 
-let [movies,setMovies] = useState([])
 
-useEffect(()=>{
-    async function getMovies() {
-        let Movies = await fetch(
-             'https://api.themoviedb.org/3/movie/popular',
-            {
-                headers:{
-                     Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
-                }
-            }   
-        )
-        let Get = await Movies.json()
-        console.log(Get);
-        setMovies(Get.results)
-        console.log(movies);
-    }
-    getMovies();
-},[])
   return (
    <section className="popular-movies">
       <div className="container">

@@ -3,40 +3,18 @@ import { BrowserRouter } from 'react-router-dom'
 import Navbaar from './assets/Components/Navbaar'
 
 import React from 'react'
+import Moviesection from './assets/Components/Moviesection'
+import Hero from './assets/Components/Hero'
 
-// export const App = () => {
-//     let token = import.meta.env.VITE_TMDB_TOKEN;
-//     console.log(token);
-
-//  useEffect(()=>{
-
-//   async function getMovies(params) {
-//      let response = await fetch(
-//           'https://api.themoviedb.org/3/movie/popular',
-//           {
-//             headers: {
-//               Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
-//             }
-//           }
-//         );
-//         let dta= await response.json()
-//         console.log(dta.results[0]);
-//   }
-//   getMovies()
-
-//  },[])
-
-//   return (
-//     <div>App</div>
-//   )
-// }
 
 
 export const App = () => {
+  let [movies, setMovies] = useState([]);
   return (
-    <BrowserRouter>
-    <Navbaar/>
-    </BrowserRouter>
+   <>
+   <Hero setMovies={setMovies}/>
+   <Moviesection movies={movies}/>
+   </>
   )
 }
 

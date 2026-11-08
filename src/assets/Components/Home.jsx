@@ -1,11 +1,9 @@
 import React from 'react'
-import Hero from './Hero'
-import Moviesection from './Moviesection'
+import App from '../../App'
 export const Home = () => {
   return (
   <>
-   <Hero/>
-   <Moviesection/>
+<App/>
   </>
   )
 }

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import "./Hero.css"
 
 
-export const Hero = () => {
+export const Hero = ({setMovies}) => {
 
 let [search,setSearch] = useState("")
 
@@ -25,6 +25,7 @@ let url = `https://api.themoviedb.org/3/search/movie?query=${search}`;
   let Get =  await searchMovie.json()
   console.log(Get);
   console.log(Get.results);
+  setMovies(Get.results);
 }
 
   return (
