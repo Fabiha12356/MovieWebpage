@@ -9,11 +9,11 @@ import Hero from './assets/Components/Hero'
 
 
 export const App = () => {
-  let [movies, setMovies] = useState([]);
+  let [getmovies, setMovies] = useState([]);
   return (
    <>
    <Hero setMovies={setMovies}/>
-   <Moviesection movies={movies}/>
+   <Moviesection getmovies={getmovies} condition={false}/>
    </>
   )
 }
