@@ -4,6 +4,7 @@ import "./MovieSection.css"
 export const Moviesection = ({getmovies,condition}) => {
 
 let [movies,setMovies] = useState([])
+let [genre,setGenre] = useState([])
 
 useEffect(()=>{
     async function getMovies() {
@@ -22,6 +23,28 @@ useEffect(()=>{
     }
     getMovies();
 },[])
+
+useEffect(()=>{
+ 
+async function getGenre(params) {
+    let dta = await fetch('https://api.themoviedb.org/3/genre/movie/list',
+        {
+        headers : {
+               Authorization :`Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
+            accept: 'application/json'
+        }
+        }
+    )
+    let get = await dta.json()
+    console.log(get)
+    console.log(get.results)
+}
+getGenre();
+
+})
+
+
+
   return (
 
         (condition == true) ? <> <section className="popular-movies">
@@ -74,7 +97,7 @@ useEffect(()=>{
      <section className="popular-movies">
       <div className="container">
 
-        <div className="popular-heading">
+        {/* <div className="popular-heading">
           <div>
             <span className="popular-tag">EXPLORE COLLECTION</span>
             <h2>Popular <span>Movies</span></h2>
@@ -82,7 +105,7 @@ useEffect(()=>{
           </div>
 
           <button className="view-all-btn">View All →</button>
-        </div>
+        </div> */}
 
         <div className="row g-4">
 
