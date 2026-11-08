@@ -1,10 +1,12 @@
 import React from 'react'
 import { useEffect,useState } from 'react'
 import "./MovieSection.css"
+import "./GenreBtn.css"
 export const Moviesection = ({getmovies,condition}) => {
 
 let [movies,setMovies] = useState([])
-let [genre,setGenre] = useState([])
+
+let [setgenre,setSelectGenre] = useState(null)
 
 useEffect(()=>{
     async function getMovies() {
@@ -24,30 +26,74 @@ useEffect(()=>{
     getMovies();
 },[])
 
-useEffect(()=>{
- 
-async function getGenre(params) {
-    let dta = await fetch('https://api.themoviedb.org/3/genre/movie/list',
-        {
-        headers : {
-               Authorization :`Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
-            accept: 'application/json'
-        }
-        }
-    )
-    let get = await dta.json()
-    console.log(get)
-    console.log(get.results)
-}
-getGenre();
+const handleGenreClick = async (genreId) => {
 
-})
+  setSelectGenre(genreId);
+
+  let url = genreId === null
+    ? 'https://api.themoviedb.org/3/movie/popular'
+    : `https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}`;
+
+  let response = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
+      accept: 'application/json'
+    }
+  });
+
+  let data = await response.json();
+
+  setMovies(data.results);
+};
+
 
 
 
   return (
+   
 
-        (condition == true) ? <> <section className="popular-movies">
+        (condition == true) ? <> 
+
+<div className="genre-buttons">
+
+  <button
+    className="genre-btn"
+    onClick={() => handleGenreClick(null)}
+  >
+    All
+  </button>
+
+  <button className="genre-btn" onClick={() => handleGenreClick(28)}>
+    Action
+  </button>
+
+  <button className="genre-btn" onClick={() => handleGenreClick(35)}>
+    Comedy
+  </button>
+
+  <button className="genre-btn" onClick={() => handleGenreClick(27)}>
+    Horror
+  </button>
+
+  <button className="genre-btn" onClick={() => handleGenreClick(10749)}>
+    Romance
+  </button>
+
+  <button className="genre-btn" onClick={() => handleGenreClick(53)}>
+    Thriller
+  </button>
+
+  <button className="genre-btn" onClick={() => handleGenreClick(878)}>
+    Sci-Fi
+  </button>
+
+  <button className="genre-btn" onClick={() => handleGenreClick(16)}>
+    Animation
+  </button>
+
+</div>
+
+        <section className="popular-movies">
       <div className="container">
 
         <div className="popular-heading">
@@ -97,15 +143,6 @@ getGenre();
      <section className="popular-movies">
       <div className="container">
 
-        {/* <div className="popular-heading">
-          <div>
-            <span className="popular-tag">EXPLORE COLLECTION</span>
-            <h2>Popular <span>Movies</span></h2>
-            <p>Discover movies everyone is watching.</p>
-          </div>
-
-          <button className="view-all-btn">View All →</button>
-        </div> */}
 
         <div className="row g-4">
 

@@ -1,0 +1,33 @@
+.genre-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 35px 0;
+}
+
+.genre-btn {
+  padding: 10px 25px;
+  border: 1px solid #e63946;
+  border-radius: 30px;
+  background: transparent;
+  color: #e63946;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.genre-btn:hover {
+  background: #e63946;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+}
+
+.genre-btn.active {
+  background: #e63946;
+  color: white;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.25);
+}
