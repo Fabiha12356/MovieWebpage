@@ -1,0 +1,174 @@
+
+.details-page {
+  min-height: 100vh;
+  background: #100c18;
+  color: white;
+}
+
+/* Backdrop */
+
+.details-backdrop {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 80px 7%;
+}
+
+/* Main Content */
+
+.details-content {
+  width: 100%;
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 55px;
+}
+
+/* Poster */
+
+.details-poster {
+  flex: 0 0 300px;
+}
+
+.details-poster img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+  display: block;
+}
+
+/* Information */
+
+.details-info {
+  flex: 1;
+}
+
+.details-tag {
+  display: inline-block;
+  color: #ff4757;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.details-info h1 {
+  font-size: clamp(32px, 5vw, 55px);
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.details-date {
+  color: #b9b4c4;
+  margin-bottom: 22px;
+}
+
+.details-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.details-meta span {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+.details-info h3 {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 22px 0 12px;
+}
+
+.details-overview {
+  color: #c7c2d0;
+  line-height: 1.9;
+  max-width: 750px;
+}
+
+/* Genres */
+
+.details-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.details-genres span {
+  background: #e63946;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Extra Information */
+
+.details-extra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 25px;
+  margin-top: 30px;
+}
+
+.details-extra p {
+  color: #c7c2d0;
+  font-size: 14px;
+}
+
+.details-extra strong {
+  color: white;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .details-backdrop {
+    padding: 50px 6%;
+  }
+
+  .details-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 35px;
+  }
+
+  .details-poster {
+    width: 220px;
+    flex-basis: auto;
+    margin: auto;
+  }
+
+  .details-info {
+    width: 100%;
+  }
+
+  .details-info h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-meta {
+    gap: 8px;
+  }
+
+  .details-meta span {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .details-extra {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

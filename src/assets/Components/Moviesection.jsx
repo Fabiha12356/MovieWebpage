@@ -1,8 +1,9 @@
 import React from 'react'
 import { useEffect,useState } from 'react'
+import { Link } from 'react-router-dom'
 import "./MovieSection.css"
 import "./GenreBtn.css"
-export const Moviesection = ({getmovies,condition}) => {
+export const Moviesection = ({getmovies,condition,fixedMovies}) => {
 
 let [movies,setMovies] = useState([])
 
@@ -126,9 +127,9 @@ const handleGenreClick = async (genreId) => {
                 <div className="movie-info">
                   <h5>{item.title}</h5>
                   <p>{item.release_date}</p>
-                  <button className="details-btn">
+                  <Link to={`/movie/${item.id}`}className="details-btn">
                     View Details →
-                  </button>
+                    </Link>
                 </div>
 
               </div>

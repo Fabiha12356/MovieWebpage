@@ -6,6 +6,7 @@ import "./Navbaar.css"
 import Moviesection from './Moviesection';
 import Fav from './Fav';
 import Home from './Home';
+import Detailmovie from './Detailmovie';
 
 export const Navbaar = () => {
   return (
@@ -30,6 +31,8 @@ export const Navbaar = () => {
     <Route path='/' element={<Home/>}/>
     <Route path='/movie' element={<Moviesection condition={true}/>}/>
     <Route path='/fav' element={<Fav/>}/>
+    <Route path='/movie/:id' element={<Detailmovie/>}/>
+    
 </Routes>
     </>
   )
