@@ -33,7 +33,8 @@ getDetailMovie()
   return (
   <div className="details-page">
 
-    {/* Movie Backdrop */}
+   
+ {/* Movie Backdrop */}
     <div
       className="details-backdrop"
       style={{
@@ -98,7 +99,6 @@ getDetailMovie()
         </div>
       </div>
     </div>
-
   </div>
 );
 }
