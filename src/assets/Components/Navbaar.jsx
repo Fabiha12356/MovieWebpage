@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link,Route,Routes } from 'react-router-dom';
+import { useState,useEffect } from 'react';
 
 
 import "./Navbaar.css"
@@ -9,6 +10,7 @@ import Home from './Home';
 import Detailmovie from './Detailmovie';
 
 export const Navbaar = () => {
+     let [ favorites,setFavorites] = useState([])
   return (
     <>
        <nav className="navbar">
@@ -29,8 +31,9 @@ export const Navbaar = () => {
 
 <Routes>
     <Route path='/' element={<Home/>}/>
-    <Route path='/movie' element={<Moviesection condition={true}/>}/>
-    <Route path='/fav' element={<Fav/>}/>
+    <Route path='/movie' element={<Moviesection condition={true}
+     favorites={favorites} setFavorites={setFavorites}/>}/>
+    <Route path='/fav' element={<Fav  favorites={favorites}/>}/>
     <Route path='/movie/:id' element={<Detailmovie/>}/>
     
 </Routes>

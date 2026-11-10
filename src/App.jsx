@@ -10,10 +10,11 @@ import Hero from './assets/Components/Hero'
 
 export const App = () => {
   let [getmovies, fixedMovies] = useState([]);
+  let [ favorites,setFavorites] = useState([])
   return (
    <>
    <Hero fixedMovies={fixedMovies}/>
-   <Moviesection getmovies={getmovies} condition={false} fixedMovies={fixedMovies} />
+   <Moviesection getmovies={getmovies} condition={false} fixedMovies={fixedMovies}/>
    </>
   )
 }

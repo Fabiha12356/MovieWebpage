@@ -3,7 +3,10 @@ import { useEffect,useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./MovieSection.css"
 import "./GenreBtn.css"
-export const Moviesection = ({getmovies,condition,fixedMovies}) => {
+export const Moviesection = ({getmovies,condition,favorites, setFavorites}) => {
+
+    console.log("Parent favorites:", favorites)
+    console.log("Parent favorites:",  setFavorites)
 
 let [movies,setMovies] = useState([])
 
@@ -20,9 +23,9 @@ useEffect(()=>{
             }   
         )
         let Get = await Movies.json()
-        console.log(Get);
+        // console.log(Get);
         setMovies(Get.results)
-        console.log(movies);
+        // console.log(movies);
     }
     getMovies();
 },[])
@@ -47,6 +50,11 @@ const handleGenreClick = async (genreId) => {
   setMovies(data.results);
 };
 
+
+const handleFavourite = (movie)=>{
+setFavorites([...favorites,movie]);
+console.log("okkkkkkk")
+}
 
 
 
@@ -111,7 +119,7 @@ const handleGenreClick = async (genreId) => {
 
          {
             movies.map((item)=>{
-                console.log(item);
+              
          return   <div className="col-lg-3 col-md-6" key={item.id}>
               <div className="movie-card">
 
@@ -130,6 +138,7 @@ const handleGenreClick = async (genreId) => {
                   <Link to={`/movie/${item.id}`}className="details-btn">
                     View Details →
                     </Link>
+                    <button onClick={()=>handleFavourite(item)}>❤️ Add to Favorites</button>
                 </div>
 
               </div>

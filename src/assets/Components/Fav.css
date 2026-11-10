@@ -1,0 +1,86 @@
+
+.fav-container {
+  background: #100c18;
+  min-height: 100vh;
+  padding: 40px 7%;
+  color: white;
+}
+
+.fav-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.fav-heading h2 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.fav-heading p {
+  color: #aaa;
+  margin-top: 8px;
+}
+
+/* Favorite Movie List */
+
+.fav-list {
+  max-width: 750px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.fav-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px;
+  background: #1b1525;
+  border: 1px solid #30243e;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.fav-item:hover {
+  transform: translateY(-3px);
+  background: #251b33;
+  box-shadow: 0 5px 18px rgba(168, 68, 255, 0.15);
+}
+
+.fav-item img {
+  width: 75px;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.fav-item h5 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+  color: white;
+}
+
+.no-fav {
+  text-align: center;
+  color: #aaa;
+  padding: 50px 0;
+}
+
+/* Responsive */
+
+@media (max-width: 576px) {
+  .fav-container {
+    padding: 30px 5%;
+  }
+
+  .fav-item img {
+    width: 60px;
+    height: 80px;
+  }
+
+  .fav-item h5 {
+    font-size: 15px;
+  }
+}
